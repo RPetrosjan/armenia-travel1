@@ -1,0 +1,68 @@
+.divfooter{
+    background-color: #34393d;
+    width: 100%;
+
+}
+.divfooter>div{
+    color: white;
+    margin: 0px auto;
+    max-width: 900px;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+.divfooter .companyname{
+    text-align: center;
+}
+.divfooter .companyname>div{
+    width: 200px;
+    display: inline-block;
+}
+.divfooter>div .footermenu{
+    border-bottom: 1px solid grey;
+    border-top: 1px solid grey;
+    margin-top: 25px;
+    text-align: center;
+}
+.divfooter>div .footermenu .menusite{
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+.divfooter>div .footermenu .menusite>a{
+    color: white;
+    font-family: 'Open Sans', sans-serif;
+    padding: 10px 15px;
+    text-decoration: none;
+    display: inline-block;
+}
+.divfooter>div .footermenu .menusite>a:hover{
+    color: orange;
+}
+
+.divfooter>div .comanycontact{
+    color: white;
+    font-family: 'Josefin Sans', sans-serif;
+    margin-top: 40px;
+}
+.divfooter>div .comanycontact>h3{
+    font-weight: normal;
+    color: orange;
+    font-size: 16px;
+    border-bottom: 1px orange solid;
+}
+.divfooter>div .comanycontact>.socialbuttons{
+    margin-left: 0px;
+}
+.divfooter>div .comanycontact>div{
+    margin-top: 9px;
+}
+.divfooter>div .rightinfo{
+    text-align: center;
+    border-top: 1px gray solid;
+    margin-top: 27px;
+}
+.divfooter>div .rightinfo>div{
+    padding-bottom: 5px;
+    padding-top: 18px;
+}

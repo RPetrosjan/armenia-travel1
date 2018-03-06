@@ -1,0 +1,28 @@
+{% extends 'SonataAdminBundle:CRUD:show.html.twig' %}
+
+   {% block stylesheets %}
+       {{ parent() }}
+       <link href="{{ asset('/Resources/public/css/block/infoast.block.html.css') }}" type="text/css" rel="stylesheet" />
+       <link href="https://use.fontawesome.com/releases/v5.0.7/css/all.css" rel="stylesheet">
+   {% endblock %}
+
+{% block show_groups %}
+
+{% if groups[0] == 'Destination' %}
+
+    {% set showFieldDescriptions = [] %}
+
+    {% if admin is defined  %}
+        {% for element in admin.showFieldDescriptions %}
+            {% set showFieldDescriptions = showFieldDescriptions|merge({(element.name):(element.value(object))}) %}
+            {% endfor %}
+        {% endif %}
+
+    <div class="infoast"><h2 class="titleblock"><i class="fa fa-globe"></i> Our Destinations</h2>
+    {% include 'WebPagesTwig/block/destination.block.html.twig' with showFieldDescriptions %}
+    </div>
+
+    {% else %}
+    {{ parent() }}
+{% endif %}
+{% endblock %}

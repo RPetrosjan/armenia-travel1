@@ -1,0 +1,159 @@
+
+.infoast{
+    margin: 50px auto;
+    width: 900px;
+}
+.titleblock{
+    font-family: 'Josefin Sans', sans-serif;
+    font-weight: bold;
+    font-size: 30px;
+    margin: 0px;
+    padding: 0px;
+    border-bottom: 1px silver solid;
+    margin-bottom: 50px;
+}
+
+div.infoboxdest>div{
+    display: inline-block;
+    vertical-align: top;
+
+}
+div.infoboxdest>div:first-of-type{
+    max-width: 300px;
+    margin-right: 50px;
+    float: left;
+}
+div.infoboxdest>span{
+    font-family: 'Open Sans', sans-serif;
+    font-size: 14px;
+}
+div.infoboxdest>div>a{
+    width: 100%;
+    height: 195px;
+    box-shadow: 0px 0px 15px 0px black;
+    display: inline-block;
+    overflow: hidden;
+    position: relative;
+}
+
+div.infoboxdest>div>a>img{
+    width: 100%;
+
+}
+div.infoboxdest .infodestign{
+    background-color: #ff8d00f5;
+    color: white;
+    font-family: 'Open Sans', sans-serif;
+    line-height: 29px;
+    margin: -50px auto;
+    padding-left: 13px;
+    position: relative;
+    width: 250px;
+    font-size: 14px;
+    letter-spacing: 1px;
+    font-weight: bold;
+    text-shadow: 0px 0px 7px black;
+
+}
+
+div.infoboxdest{
+    margin-bottom: 55px;
+    min-height: 230px;
+}
+div.infoboxdest .infodestign>span:nth-child(2){
+    float: right;
+    padding-right: 10px;
+}
+div.infoboxdest .infodestign>span>span{
+    padding-left: 8px;
+}
+div.infoboxdest .package-date{
+    color: #939393;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: bold;
+    font-size: 14px;
+    padding-top: 10px;
+    padding-left: 55px;
+}
+
+div.package-type-gimmick {
+    border-bottom-color: transparent;
+    border-left-color: #ababab00;
+    border-right-color: #56565600;
+    border-style: solid;
+    border-top-color: #000000;
+    border-width: 8px 8px 0px 0px;
+    float: right;
+    top: 32px;
+    left: 87px;
+    position: absolute;
+}
+
+.titileinfoboex{
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 32px;
+    font-weight: bold;
+    float: left;
+    margin-right: 16px;
+    padding-right: 13px;
+    color: red;
+    text-shadow: 0px 0px 4px #949494;
+}
+div.infoboxdest>span> .infoboxtext{
+    display: block;
+    padding-top: 15px;
+    font-size: 17px;
+}
+div.infoboxdest>span>.infoboxes>span{
+    display: inline-block;
+    font-size: 15px;
+    margin-right: 15px;
+    background-color: #fff8d6;
+    padding: 5px 5px;
+    margin-bottom: 7px;
+    border-radius: 3px;
+    box-shadow: 0px 0px 5px -1px black;
+}
+div.infoboxdest>span>.infoboxes>span>span:nth-of-type(1){
+    padding-right: 5px;
+    display: inline-block;
+}
+div.infoboxdest>span>.infoboxes>span:nth-of-type(2){
+    color: black
+}
+
+@media (max-width: 920px) {
+
+    .infoast{
+        width: auto;
+        padding-left: 10px;
+    }
+}
+
+@media (max-width: 600px) {
+    div.infoboxdest>span{
+        display: inline-block;
+        margin-top: 15px;
+        padding-right: 10px;
+    }
+    div.infoboxdest>div:first-of-type{
+        max-width: 100%;
+        margin-right: 10px;
+    }
+    div.infoboxdest .learnmore{
+        width: auto;
+        margin-left: 0px;
+        margin-top: 158px;
+    }
+    div.infoboxdest .infodestign{
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        margin: 0px;
+
+    }
+    div.package-type-gimmick{
+        display: none;
+
+    }
+}

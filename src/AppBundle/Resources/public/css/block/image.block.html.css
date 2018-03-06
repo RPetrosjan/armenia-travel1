@@ -1,0 +1,107 @@
+.imageblock{
+     height: 600px;
+    width: 100%;
+    display: inline-block;
+    margin-top: -80px;
+    overflow: hidden;
+}
+.imageblock>div{
+    width: 900px;
+    margin: 0 auto;
+}
+.imageblock .titelimageblock{
+    color: #FF9800;
+    display: inline-block;
+    font-family: 'Josefin Sans', sans-serif;
+    font-weight: bold;
+    float: right;
+    margin: 0;
+    text-shadow: 0px 0px 5px black;
+}
+
+/* The actual timeline (the vertical ruler) */
+.timeline {
+    display: inline-block;
+    margin-top: 81px;
+    position: relative;
+    padding-top: 40px;
+    height: 100vh;
+}
+
+/* The actual timeline (the vertical ruler) */
+.timeline::after {
+    border-right: 2px #ffffff dashed;
+    bottom: 0;
+    content: '';
+    left: 50%;
+    margin-left: -7px;
+    position: absolute;
+    top: 0;
+}
+
+/* Container around content */
+.container {
+    position: relative;
+    width: 50%;
+}
+.container.left>.content{
+    padding-right: 15px;
+}
+.container.right>.content{
+
+}
+
+    /* The circles on the timeline */
+.container::after {
+    background-color: white;
+    content: '';
+    height: 10px;
+    position: absolute;
+    top: 15px;
+    width: 10px;
+    z-index: 1;
+}
+
+/* Place the container to the left */
+.left {
+    left: 0;
+    text-align: right;
+}
+
+/* Place the container to the right */
+.right {
+    left: 50%;
+}
+
+/* Fix the circle for containers on the right side */
+.right::after {
+    left: -21px;
+}
+
+/* The actual content */
+.content {
+    position: relative;
+    color: white;
+    text-shadow: 0px 0px 13px black;
+}
+.content.active{
+    color: #e59504;
+}
+
+.content>p,.content>h2{
+    margin: 0px;
+    padding: 0px;
+}
+.content>h2{
+    font-family: 'Josefin Sans', sans-serif;
+}
+.content>p{
+    font-family: 'Open Sans', sans-serif;
+}
+
+@media (max-width: 920px) {
+
+    .imageblock>div{
+        width: 100%;
+    }
+}

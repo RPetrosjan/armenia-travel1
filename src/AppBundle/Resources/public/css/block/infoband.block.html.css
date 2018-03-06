@@ -1,0 +1,38 @@
+.infoband{
+    background-color: #008ce2;
+    text-align: center;
+    margin-top: -55px;
+    position: relative;
+    box-shadow: 0px 0px 15px 0px black;
+    background-image: url(/img/back-min.png);
+
+}
+.infoband>a:hover{
+    color: #FF9800;
+}
+.infoband>a{
+    border-right: dashed 1px white;
+    color: white;
+    display: inline-block;
+    padding: 16px 22px;
+    text-decoration: none;
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 19px;
+    text-shadow: 0px 0px 9px black;
+}
+.infoband>a:last-of-type{
+    border-right: none;
+}
+
+@media (max-width: 880px) {
+    .infoband{
+        margin-top: 0px;
+    }
+    .infoband>a{
+        width: 100%;
+        border-top: 2px black solid;
+        font-weight: bold;
+        padding: 16px 0px;
+        border-right: 0px;
+    }
+}

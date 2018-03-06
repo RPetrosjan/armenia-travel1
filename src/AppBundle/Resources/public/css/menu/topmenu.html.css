@@ -1,0 +1,73 @@
+div.menu{
+    width: 100%;
+    text-align: center;
+    top: 0px;
+    box-shadow: 0px 0px 50px 12px black;
+    position: relative;
+    z-index: 5;
+}
+div.menu:after{
+    background-color: #141414;
+    content: '';
+    height: 100%;
+    left: 0px;
+    opacity: 0.8;
+    position: absolute;
+    top: 0px;
+    width: 100%;
+    z-index: -1;
+}
+div.menu>div,div.menu>div>div{
+    margin: 0 auto;
+    display: inline-block;
+    vertical-align: top;
+}
+div.menu>div .iconsite{
+    width: auto;
+    display: inline-block;
+}
+div.menu>div .iconsite>div{
+    display: inline-block;
+    vertical-align: top;
+}
+div.menu>div .iconsite>.icon{
+    background-image: url(/img/icon1.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    height: 80px;
+    width: 90px;
+}
+div.menu>div .iconsite>.companyname{
+    margin-right: 25px;
+    width: 183px;
+}
+div.menu>div .iconsite>.companyname>h1{
+    color: white;
+    font-family: 'Josefin Sans', sans-serif;
+    line-height: 20px;
+    margin: 0px;
+    padding: 0px;
+    padding-top: 19px;
+    width: 150px;
+    font-size: 40px;
+    letter-spacing: 0.18px;
+}
+div.menu>div .menusite>a{
+    color: white;
+    cursor: pointer;
+    display: inline-block;
+    font-family: 'Open Sans', sans-serif;
+    height: 100%;
+    padding: 31px 15px;
+    text-transform: uppercase;
+    font-size: 14px;
+    text-decoration: none;
+}
+div.menu>div .menusite>a:hover{
+    background-color: #f49f03;
+    box-shadow: 0px 5px 15px -5px #f49f03;
+    text-shadow: 0px 0px 14px black;
+}
+
+@media (max-width: 880px) { div.menu>div .menusite>a{ padding: 10px 15px;}}

@@ -1,0 +1,124 @@
+{#
+
+{% extends 'SonataAdminBundle:CRUD:edit.html.twig' %}
+{% block preview %}
+        End LOKC
+    {% endblock %}
+
+#}
+
+    {% block sonata_type_native_collection_widget_row %}
+
+        {% block stylesheets %}
+            <link href="https://use.fontawesome.com/releases/v5.0.7/css/all.css" rel="stylesheet">
+        {% endblock %}
+
+        <style>
+            .separator{
+                border-bottom: 1px #c7c5c5 solid;
+                margin-bottom: 53px;
+                padding-bottom: 25px;
+            }
+            .showimageblock{
+                max-width: 100%;
+                border: 1px #7b7b7b solid;
+                box-shadow: 0px 0px 15px -3px black;
+                max-width: 100%
+            }
+            .divullifloat .list-unstyled>li{
+                display: inline-block;
+            }
+            .divullifloat .list-unstyled>li .checkbox label, .radio label{
+                margin-right: 20px;
+            }
+
+        </style>
+
+        {% spaceless %}
+            <div class="sonata-collection-row">
+                {% if allow_delete %}
+                <div class="row">
+                    <div class="col-xs-1">
+                        <a href="#" class="btn btn-link sonata-collection-delete">
+                            <i class="fa fa-minus-circle" aria-hidden="true"></i>
+                        </a>
+                    </div>
+
+                    <div class="col-xs-11 rubentype divullifloat">
+
+                        {% endif %}
+                        <div class="col-xs-2">
+                            {% if child.vars.value.image is defined %}
+                                <img class="showimageblock"  src="/public/uploads/images/{{ child.image.vars.data }}"  />
+                                {% else %}
+
+                            {% endif %}
+                        </div>
+                          <div class="col-xs-7 separator">
+                                {{ form_row(child, { label: false }) }}
+                          </div>
+
+                        {% if allow_delete %}
+                    </div>
+                </div>
+                {% endif %}
+            </div>
+        {% endspaceless %}
+
+        <script>
+
+            initialisationimage();
+
+            function initialisationimage() {
+                $('.rubentype').find('input[type="file"]').change(function(){
+                    var imgob = $(this).closest('.rubentype').find('.showimageblock');
+                    readURL(this,imgob);
+                });
+            }
+
+            function readURL(input,imgob) {
+                if (input.files && input.files[0]) {
+                    var reader = new FileReader();
+
+                    reader.onload = function(e) {
+                       ////  $('#blah').attr('src', e.target.result);
+                        imgob.attr('src', e.target.result);
+                    }
+
+                    reader.readAsDataURL(input.files[0]);
+                }
+            }
+
+        </script>
+
+    {% endblock %}
+
+{% block checkbox_radio_label %}
+
+    {% if sonata_admin.admin %}
+        {% set translation_domain = sonata_admin.field_description.translationDomain %}
+    {% endif %}
+
+    {# Do not display the label if widget is not defined in order to prevent double label rendering #}
+    {% if widget is defined %}
+        {% if required %}
+            {% set label_attr = label_attr|merge({class: (label_attr.class|default('') ~ ' required')|trim}) %}
+        {% endif %}
+        {% if parent_label_class is defined %}
+            {% set label_attr = label_attr|merge({class: (label_attr.class|default('') ~ ' ' ~ parent_label_class)|trim}) %}
+        {% endif %}
+        {% if label is not same as(false) and label is empty %}
+            {% set label = name|humanize %}
+        {% endif %}
+
+        <label{% for attrname, attrvalue in label_attr %} {{ attrname }}="{{ attrvalue }}"{% endfor %}>
+        {{- widget|raw -}}
+        {%- if label is not same as(false) -%}
+            <span class="control-label__text">
+                    {{label|trans({}, translation_domain)|raw -}}
+                </span>
+        {%- endif -%}
+        </label>
+    {% endif %}
+
+{% endblock %}

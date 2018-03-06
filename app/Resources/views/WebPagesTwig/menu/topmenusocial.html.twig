@@ -1,0 +1,39 @@
+{{ '@AppBundle/Resources/public/css/menu/topmenusocial.html.css'|cssloader }}
+<div class="topsocialmenu">
+    <div>
+        <div class="langue">
+
+            <div class="selectlangue">{{ languages[app.request.getLocale()]}} <i class="fas fa-angle-down"></i></div>
+            <ul class="uldropdown">
+            {% set pathurl = app.request.pathinfo|split("/") %}
+            {% set pathurl = pathurl[2:] %}
+            {% set classoption = '' %}
+            {% for key,lang in languages %}
+                {% if key == app.request.getLocale() %}
+                    {% set classoption = 'selected' %}
+                {% else %}
+                    {% set classoption = '' %}
+                {% endif %}
+                <li {{ classoption }}><a href="/{{ key }}/{{ pathurl|join('/') }}">{{ lang }}</a></li>
+            {% endfor %}
+                </ul>
+        </div>
+        <div class="socialbuttons">
+            <div>
+                <i class="fab fa-google-plus-g"></i>
+            </div>
+            <div>
+                <i class="fab fa-facebook-f"></i>
+            </div>
+            <div>
+                <i class="fab fa-odnoklassniki"></i>
+            </div>
+            <div>
+                <i class="fab fa-vk"></i>
+            </div>
+        </div>
+        <div class="divcontact">
+            <i class="fas fa-phone"></i>  (+374 96) 60 59 58
+        </div>
+    </div>
+</div>
