@@ -92,6 +92,9 @@
     margin: 0px;
     padding: 0px;
 }
+.content>h2>i{
+    color: #ed0303;
+}
 .content>h2{
     font-family: 'Josefin Sans', sans-serif;
 }

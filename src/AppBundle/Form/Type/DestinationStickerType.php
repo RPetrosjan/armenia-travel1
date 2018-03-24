@@ -26,6 +26,9 @@ class DestinationStickerType extends AbstractType
             ->add('sticker',EntityType::class,array(
                'class' => Sticker::class,
                 'expanded' => true,
+                'attr' => array(
+                    'class' => 'customsticker',
+                ),
             ))
             ->add('fieldSticker',TextType::class,array(
                 'label' => 'Name',
@@ -40,11 +43,4 @@ class DestinationStickerType extends AbstractType
             'data_class' => DestinationStickers::class,
         ));
     }
-
-    public function getFormTheme()
-    {
-
-    }
-
-
 }

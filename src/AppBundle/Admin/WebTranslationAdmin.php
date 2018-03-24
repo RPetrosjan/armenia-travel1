@@ -115,7 +115,7 @@ class WebTranslationAdmin extends AbstractAdmin
                 'locale' => 'fr',
                 'timezone' => 'Europe/Paris',
             ))
-            ->addIdentifier('code')
+            ->addIdentifier('code',null,['editable' => true])
             ->add('locale')
             ->addIdentifier('_action','actions',array(
                 'actions' => array(

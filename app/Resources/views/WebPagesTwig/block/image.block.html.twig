@@ -3,35 +3,24 @@
     <div class="imageblock">
         <div>
             <div class="timeline">
-                <h1 class="titelimageblock">Yerevan</h1>
-                <div class="container left">
-                    <div class="content">
-                        <h2>Day 1 <i class="fas fa-map-marker-alt"></i></h2>
-                        <p>Mount Aragats</p>
-                        Aragats, the highest mountain in Armenia, is a dormant volcano....
+
+                <h1 class="titelimageblock">{{ destionations_block[0].nameDestination|trans }}</h1>
+
+                {% for key,value in destinationdays[0] %}
+                    {% if key is divisible by(2)  %}
+                        {% set class = 'left' %}
+                    {% else %}
+                        {% set class = 'right' %}
+                    {% endif %}
+
+                    <div class="container {{ class }}">
+                        <div class="content">
+                            <h2>{{ 'Day'|trans }} {{ key+1 }} <i class="fas fa-map-marker-alt"></i></h2>
+                            <p>{{ value.titleDays|trans }}</p>
+                            {{ value.descriptionDays|trans|truncate(150) }}
+                        </div>
                     </div>
-                </div>
-                <div class="container right">
-                    <div class="content">
-                        <h2><i class="fas fa-map-marker-alt"></i> Day 2</h2>
-                        <p>Kasakh River</p>
-                        River Kasakh begins at the NE slopes of Mt. Aragats and flows down along its eastern
-                    </div>
-                </div>
-                <div class="container left">
-                    <div class="content active">
-                        <h2>Day 3 <i class="fas fa-map-marker-alt"></i></h2>
-                        <p>Saghmosavank Monastery</p>
-                        In the closest vicinity of Hovhannavank, there is another majestic monastery complex perched over the Kasakh
-                    </div>
-                </div>
-                <div class="container right">
-                    <div class="content">
-                        <h2><i class="fas fa-map-marker-alt"></i> Day 4</h2>
-                        <p>Amberd Fortress</p>
-                        Amberd, the largest fortress in Armenia, is located on the southern slopes...
-                    </div>
-                </div>
+                {% endfor %}
             </div>
 
         </div>

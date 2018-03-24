@@ -1,0 +1,32 @@
+{% extends 'SonataAdminBundle:CRUD:show.html.twig' %}
+
+
+ {% block stylesheets %}
+     {{ parent() }}
+     <link href="https://use.fontawesome.com/releases/v5.0.7/css/all.css" rel="stylesheet">
+     <link href="/Resources/public/css/block/infoast.block.html.css" rel="stylesheet">
+ {% endblock %}
+
+{% block show_groups %}
+
+
+    {%  set showFieldDescriptions = {
+        'imagetype': object.allimages,
+        'StartDateDestination': object.StartDateDestination,
+        'EndDateDestination': object.EndDateDestination,
+        'nameDestination' : object.nameDestination,
+        'destinationsticker' : object.destinationsticker,
+        'description' : object.description,
+        }
+    %}
+
+    <div class="infoast">
+    <h2 class="titleblock">
+        <i class="fa fa-globe"></i> {{'Our.Destinations'|trans  }}
+    </h2>
+
+ {%  include 'block/destination.block.html.twig' %}
+
+    </div>
+
+{% endblock %}

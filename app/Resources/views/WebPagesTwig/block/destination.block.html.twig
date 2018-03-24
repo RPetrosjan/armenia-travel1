@@ -1,9 +1,40 @@
 {#
   Block pour affichage le destionations section
-#}
-<div class="infoboxdest"><div><a hre="#"><img title="{{ showFieldDescriptions.imagetype[0].title }}" alt="{{ showFieldDescriptions.imagetype[0].altimage }}" src="/public/uploads/images/{{ showFieldDescriptions.imagetype[0].image }}"><div class="infodestign"><span>Yerevan</span><span><i class="fas fa-tag"></i><span>1500$</span></span></div></a><div class="package-date"><i class="far fa-clock"></i> {{ showFieldDescriptions.StartDateDestination|date("d M Y") }} - {{ showFieldDescriptions.EndDateDestination|date("d M Y") }}</div></div><span><span class="titileinfoboex"><span>{{ showFieldDescriptions.nameDestination|trans }}</span></span>
+
+
+ {% if showFieldDescriptions.imagetype[0].folder is defined %}
+     {% set folder = showFieldDescriptions.imagetype[0].folder %}
+     {% else %}
+     {% set folder = showFieldDescriptions.imagetype[0].path %}
+ {% endif %}
+
+
+
+     {% set image = showFieldDescriptions.imagetype[0].image %}
+ {% else %}
+     {% set image = showFieldDescriptions.imagetype[0].filename %}
+ {% endif %}
+  #}
+
+
+{% if showFieldDescriptions.imagetype is defined %}
+    {% set imagetype  = showFieldDescriptions.imagetype %}
+{% endif %}
+{% if showFieldDescriptions.allimages is defined %}
+    {% set imagetype  = showFieldDescriptions.allimages %}
+{% endif %}
+
+
+{% set destinationsticker = showFieldDescriptions.destinationsticker %}
+{% set folder = imagetype[0].uploadPath  %}
+{% set image = imagetype[0].filename  %}
+
+
+<div class="infoboxdest"><div>
+        <a hre="#"><img title="{{ imagetype[0].title }}" alt="{{ imagetype[0].altimage }}" src="/img/{{ folder }}/{{ image }}"><div class="infodestign"><span>Yerevan</span><span><i class="fas fa-tag"></i><span>1500$</span></span></div></a>
+        <div class="package-date"><i class="far fa-clock"></i> {{ showFieldDescriptions.StartDateDestination|date("d M Y") }} - {{ showFieldDescriptions.EndDateDestination|date("d M Y") }}</div></div><span><span class="titileinfoboex"><span>{{ showFieldDescriptions.nameDestination|trans }}</span></span>
     <span class="infoboxes">
-         {% for sticker in showFieldDescriptions.destinationsticker %}
+         {% for sticker in destinationsticker %}
              {% set nameSticker = sticker.fieldSticker %}
              {% if sticker.fieldSticker is empty %}
                  {% set nameSticker= sticker.sticker.nameSticker %}
@@ -13,6 +44,12 @@
 
     </span>
     <span class="infoboxtext">
-{{  showFieldDescriptions.description|trans }}
-</span><div class="buttondiv"><a>{{ 'More Info'|trans }} / {{ 'Booking'|trans }}</a></div></span></div>
+
+
+{{  showFieldDescriptions.description|trans|slice(0,200) }}...
+</span><div class="buttondiv"><a href="{%  if showFieldDescriptions.urlpage|length>1 and showFieldDescriptions.urlpage is defined %}
+{{ showFieldDescriptions.urlpage }}
+{% else %}
+#
+{% endif %}">{{ 'More Info'|trans }} / {{ 'Booking'|trans }}</a></div></span></div>
 

@@ -39,7 +39,6 @@ class LocaleSubscriber implements EventSubscriberInterface
 
     public function onKernelRequest(GetResponseEvent $event){
 
-
         $request = $event->getRequest();
         $path = $request->getPathInfo();
 

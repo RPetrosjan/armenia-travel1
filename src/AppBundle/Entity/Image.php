@@ -10,6 +10,7 @@ namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
+use AppBundle\Entity\Traits\Image as ImageTrait;
 /**
  * Image
  *
@@ -18,6 +19,17 @@ use Symfony\Component\Validator\Constraints as Assert;
  */
 class Image
 {
+
+    use ImageTrait;
+
+    public $uploadPath = "destinations";
+
+    public function getWebPath()
+    {
+        $webPath = "uploads/".$this->uploadPath."/".$this->filename;
+        return $webPath;
+    }
+
     /**
      * @return string
      */
@@ -86,8 +98,7 @@ class Image
      *
      * @ORM\Column(name="altimage", type="string", length=255)
      */
-    private $altimage;
-
+    public $altimage;
 
     /**
      * @return int
@@ -111,7 +122,7 @@ class Image
      *
      * @ORM\Column(name="title", type="string", length=255)
      */
-    private $title;
+    public $title;
 
 
     /**
@@ -137,31 +148,8 @@ class Image
      */
     private $id;
 
-    /**
-     * @return mixed
-     */
-    public function getImage()
-    {
-        return $this->image;
+    public function __toString() {
+        return $this->title;
     }
-
-    /**
-     * @param mixed $image
-     */
-    public function setImage($image)
-    {
-        $this->image = $image;
-    }
-    /**
-     * @ORM\Column(type="string", length=255, nullable=true)
-     * @Assert\Image(
-     *     maxSize = "2M",
-     *     mimeTypes = {"image/jpeg", "image/gif", "image/png"},
-     *     mimeTypesMessage = "Le fichier choisi ne correspond pas à un fichier valide",
-     *     notFoundMessage = "Le fichier n'a pas été trouvé sur le disque",
-     *     uploadErrorMessage = "Erreur dans l'upload du fichier"
-     * )
-     */
-    private $image;
 
 }

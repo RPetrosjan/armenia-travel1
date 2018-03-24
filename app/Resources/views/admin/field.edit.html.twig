@@ -1,0 +1,31 @@
+{% extends 'SonataAdminBundle:CRUD:base_edit.html.twig' %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <link href="https://use.fontawesome.com/releases/v5.0.7/css/all.css" rel="stylesheet">
+{% endblock %}
+
+
+{% block javascripts %}
+
+{{ parent() }}
+
+<script>
+
+    window.onload = function() {
+    if (window.jQuery) {
+
+        var UrlLabelText = $('label[for*="urlpage"]').text().trim();
+        console.log(UrlLabelText);
+        // Section pour gerer le url pages
+        $('input[id*="urlpage"]').keyup(function () {
+
+            console.log(UrlLabelText+$(this).val());
+            $('label[for*="urlpage"]').text(UrlLabelText+$(this).val());
+        })
+
+    }
+}
+
+</script>
+{% endblock %}

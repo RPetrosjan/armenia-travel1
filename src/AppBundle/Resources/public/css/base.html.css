@@ -9,8 +9,17 @@ body{
 @import url('https://use.fontawesome.com/releases/v5.0.6/css/all.css');
 
 .showback{
-    background-image: url(/img/yerevan-from-cascades-ararat-116.jpg);
+    position: relative;
+}
+.showback>.backgorund{
     background-size: cover;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+}
+.showback>.backgorund.img1{
+    background-image: url(/img/yerevan-from-cascades-ararat-116.jpg);
 }
 
 

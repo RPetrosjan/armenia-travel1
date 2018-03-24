@@ -1,0 +1,9 @@
+{% extends 'SonataAdminBundle:CRUD:list.html.twig' %}
+
+
+ {% block table_body %}
+     <tbody>
+     {{ dump('outer_list_rows_' ~ admin.getListMode())  }}
+     {% include admin.getTemplate('outer_list_rows_' ~ admin.getListMode()) %}
+     </tbody>
+ {% endblock %}
